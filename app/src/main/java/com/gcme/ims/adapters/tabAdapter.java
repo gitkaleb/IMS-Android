@@ -2,7 +2,6 @@ package com.gcme.ims.adapters;
 
 
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import android.support.v4.app.Fragment;
 /**
@@ -10,9 +9,9 @@ import android.support.v4.app.Fragment;
  */
 
 
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.gcme.ims.fragments.homeContainerFragment;
 import com.gcme.ims.fragments.homeFragment;
 import com.gcme.ims.fragments.prayerFragment;
 import com.gcme.ims.fragments.resourcesFragment;
