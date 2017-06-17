@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragments.partnerActivity"></activity>
+        <activity android:name=".Activitys.partnerActivity"></activity>
     </application>
 
 </manifest>

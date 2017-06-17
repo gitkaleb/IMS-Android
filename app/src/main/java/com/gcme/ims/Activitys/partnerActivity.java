@@ -1,4 +1,4 @@
-package com.gcme.ims.fragments;
+package com.gcme.ims.Activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

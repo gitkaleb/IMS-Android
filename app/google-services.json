@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "421858561697",
+    "firebase_url": "https://imsfirebaseproject-20067.firebaseio.com",
+    "project_id": "imsfirebaseproject-20067",
+    "storage_bucket": "imsfirebaseproject-20067.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421858561697:android:9e2ac32bc7ba66b5",
+        "android_client_info": {
+          "package_name": "com.gcme.ims"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421858561697-19tl6ov0ouihvlg9uqcds2b747lrlanr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gcme.ims",
+            "certificate_hash": "ba5a9c92e5cde323d54b261d6fe71979dfb80c5d"
+          }
+        },
+        {
+          "client_id": "421858561697-87r7raeee5mjt0m0e25f2mbmsfh9hnqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCOGG1YfG0Y3wEc4KR1VsChBahcYfSl00"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421858561697-87r7raeee5mjt0m0e25f2mbmsfh9hnqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

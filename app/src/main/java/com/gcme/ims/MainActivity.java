@@ -10,9 +10,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.gcme.ims.fragments.aboutFragment;
 import com.gcme.ims.fragments.homeContainerFragment;
-import com.gcme.ims.fragments.homeFragment;
 import com.gcme.ims.fragments.newsFragment;
-import com.gcme.ims.fragments.partnerActivity;
+import com.gcme.ims.Activitys.partnerActivity;
 import com.gcme.ims.fragments.testimoniesFragment;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -80,17 +79,8 @@ public class MainActivity extends AppCompatActivity {
                         // Those items don't contain a drawerItem
                         mSelectedDrawerItem = position;
                         if (drawerItem != null) {
-
-                            if (mSelectedDrawerItem == 4) {
-                                // Open about page by calling ActivityAbout.java
-                                Intent aboutIntent = new Intent(getApplicationContext(),
-                                        partnerActivity.class);
-                                startActivity(aboutIntent);
-                                overridePendingTransition(R.anim.open_next, R.anim.close_main);
-                            }else if(
-
-                                    mSelectedDrawerItem==0){  setToolbarAndSelectedDrawerItem(
-                                    navTitles[mSelectedDrawerItem],
+                             if(mSelectedDrawerItem==0) {
+                                setToolbarAndSelectedDrawerItem(navTitles[mSelectedDrawerItem],
                                         (mSelectedDrawerItem));
 
                                 android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
@@ -123,7 +113,15 @@ public class MainActivity extends AppCompatActivity {
                                 t.replace(R.id.contentframe, new aboutFragment());
                                 t.commit();
 
-                            }
+                            }else {
+
+                                     // Open about page by calling ActivityAbout.java
+                                     Intent partnerIntent = new Intent(MainActivity.this,
+                                             partnerActivity.class);
+                                     startActivity(partnerIntent);
+                                     overridePendingTransition(R.anim.open_next, R.anim.close_main);
+
+                             }
                         }
 
                         return false;

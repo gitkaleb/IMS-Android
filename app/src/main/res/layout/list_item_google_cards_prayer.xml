@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/com.gcme.ims"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/card_background_white"
+
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:background="@drawable/google_cards_background_bottom"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.gcme.ims.font.RobotoTextView
+            android:id="@+id/list_item_google_cards_travel_title_prayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Eat at Joe"
+            android:textColor="@color/material_blue_grey_300"
+            android:textSize="24sp"
+            app:typeface="robotoRegular" />
+
+        <com.gcme.ims.font.RobotoTextView
+            android:id="@+id/list_item_google_cards_travel_text_prayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="@string/lorem_ipsum_long"
+            android:textColor="@color/material_blue_grey_700"
+            android:textSize="14sp"
+            app:typeface="robotoRegular" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
