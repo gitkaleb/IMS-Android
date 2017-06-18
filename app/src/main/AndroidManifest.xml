@@ -3,10 +3,11 @@
     package="com.gcme.ims">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -19,7 +20,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activitys.partnerActivity"></activity>
+        <activity
+            android:name=".Activitys.partnerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activitys.singleDisplay"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".Services.SyncService"
+            android:enabled="true" />
+
+        <activity android:name=".Activitys.videoPlayer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

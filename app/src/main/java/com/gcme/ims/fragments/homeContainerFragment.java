@@ -22,8 +22,8 @@ public class homeContainerFragment extends Fragment {
     SlidingTabLayout tabs;
 
 
-    private String[] tabTitles = { "Home", "Prayers", "Resources" };
-    int Numboftabs = 3;
+    private String[] tabTitles = { "Home", "Prayers" };
+    int Numboftabs = 2;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

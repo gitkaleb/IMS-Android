@@ -9,6 +9,9 @@ public class prayers {
     String prayertitle;
     String prayerdetail;
 
+    public prayers() {
+    }
+
     public prayers(int id, String prayertitle, String prayerdetail) {
         this.id = id;
         this.prayertitle = prayertitle;

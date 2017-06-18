@@ -11,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.gcme.ims.R;
+import com.gcme.ims.Services.SyncService;
 import com.gcme.ims.adapters.GoogleCardsPrayerAdapter;
+import com.gcme.ims.models.news;
 import com.gcme.ims.models.prayers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +26,7 @@ public class prayerFragment extends Fragment {
 
 
     private GoogleCardsPrayerAdapter mGoogleCardsAdapter;
+    List<prayers> prayersdata ;
 
     public prayerFragment() {
         // Required empty public constructor
@@ -34,10 +38,16 @@ public class prayerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_prayer, container, false);
-        ListView listView = (ListView) view.findViewById(R.id.recycler_view_prayers);
+
+
+
+
+            ListView listView = (ListView) view.findViewById(R.id.recycler_view_prayers);
+
+        prayersdata = SyncService.getPrayers();
 
         mGoogleCardsAdapter = new GoogleCardsPrayerAdapter(getActivity(),
-                DummyModelList());
+                prayersdata);
 
 
         listView.setClipToPadding(false);

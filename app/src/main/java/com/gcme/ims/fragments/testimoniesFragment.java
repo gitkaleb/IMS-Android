@@ -11,12 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.gcme.ims.R;
+import com.gcme.ims.Services.SyncService;
 import com.gcme.ims.adapters.GoogleCardsNewsMainAdapter;
 import com.gcme.ims.adapters.GoogleCardsTestimoniesAdapter;
 import com.gcme.ims.adapters.GoogleCardsTestimoniesMainAdapter;
 import com.gcme.ims.models.testimonies;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class testimoniesFragment extends Fragment {
 
     private GoogleCardsTestimoniesMainAdapter mGoogleCardstesTestimoniesAdapter;
+    private List<testimonies> testimonydata ;
     public testimoniesFragment() {
         // Required empty public constructor
     }
@@ -36,9 +39,9 @@ public class testimoniesFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_testimonies, container, false);
         ListView listViewTestimonies = (ListView) view.findViewById(R.id.testimonies_list_view);
 
-
+        testimonydata= SyncService.getTestimonies();
         mGoogleCardstesTestimoniesAdapter = new GoogleCardsTestimoniesMainAdapter(getActivity(),
-                DummyModelList());
+                testimonydata);
 
         listViewTestimonies.setClipToPadding(false);
         listViewTestimonies.setDivider(null);
@@ -61,16 +64,16 @@ public class testimoniesFragment extends Fragment {
 
     }
 
-    public static ArrayList<testimonies> DummyModelList() {
-        ArrayList<testimonies> list = new ArrayList<>();
-
-        list.add(new testimonies(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
-        list.add(new testimonies(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
-        list.add(new testimonies(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
-        list.add(new testimonies(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
-        list.add(new testimonies(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
-
-        return list;
-    }
+//    public static ArrayList<testimonies> DummyModelList() {
+//        ArrayList<testimonies> list = new ArrayList<>();
+//
+//        list.add(new testimonies(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
+//        list.add(new testimonies(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
+//        list.add(new testimonies(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
+//        list.add(new testimonies(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
+//        list.add(new testimonies(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
+//
+//        return list;
+//    }
 
 }

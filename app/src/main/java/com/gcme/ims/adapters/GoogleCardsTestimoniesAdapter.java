@@ -2,6 +2,8 @@ package com.gcme.ims.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.gcme.ims.Activitys.singleDisplay;
 import com.gcme.ims.R;
 import com.gcme.ims.models.testimonies;
 
@@ -45,7 +48,7 @@ public class GoogleCardsTestimoniesAdapter extends RecyclerView.Adapter<GoogleCa
 		Glide.with(context)
 				.load(url)
 				.asBitmap()
-				.placeholder(R.mipmap.ic_launcher )
+				.placeholder(R.drawable.logo )
 				.into(holder.image);
 
 
@@ -57,14 +60,17 @@ public class GoogleCardsTestimoniesAdapter extends RecyclerView.Adapter<GoogleCa
 		holder. image .setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
+String img=feeds.getTestimonyimg();
+String title=feeds.getTestimonytitle();
+String description=feeds.getTestimonydetail();
 
-//
-//                Intent i=new Intent(activity_gener.getActivity(),GenerList.class);
-//                Bundle args = new Bundle();
-//                args.putString("genere",feeds.getVideogenere());
-//                i.putExtras(args);
-//                activity_gener.getActivity().startActivity(i);
-
+                Intent i=new Intent(context,singleDisplay.class);
+                Bundle args = new Bundle();
+                args.putString("imgurl",img);
+                args.putString("detailtitle",title);
+                args.putString("detaildescription",description);
+                i.putExtras(args);
+                context.startActivity(i);
 
 
 

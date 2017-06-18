@@ -10,12 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gcme.ims.R;
+import com.gcme.ims.Services.SyncService;
 import com.gcme.ims.adapters.GoogleCardsNewsAdapter;
 import com.gcme.ims.adapters.GoogleCardsTestimoniesAdapter;
 import com.gcme.ims.models.news;
 import com.gcme.ims.models.testimonies;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +27,8 @@ public class homeFragment extends Fragment {
 
     private GoogleCardsTestimoniesAdapter mGoogleCardstestimonyAdapter;
     private GoogleCardsNewsAdapter mGoogleCardsnewsAdapter;
+    List<news> newsdata ;
+    List<testimonies> testimonydata ;
     public homeFragment() {
         // Required empty public constructor
     }
@@ -35,8 +39,9 @@ public class homeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
-
-       RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_news);
+        newsdata = SyncService.getNews();
+        testimonydata = SyncService.getTestimonies();
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_news);
         RecyclerView recyclerViewtestimonies = (RecyclerView) view.findViewById(R.id.recycler_view_testimones);
 
 
@@ -70,7 +75,7 @@ public class homeFragment extends Fragment {
 
 
         mGoogleCardstestimonyAdapter = new GoogleCardsTestimoniesAdapter(getActivity(),
-                DummyModelList());
+                testimonydata);
 
         recyclerViewtestimonies.setAdapter(mGoogleCardstestimonyAdapter);
         recyclerViewtestimonies.setLayoutManager(testimonylayoutManager);
@@ -81,8 +86,7 @@ public class homeFragment extends Fragment {
 
 
 
-        mGoogleCardsnewsAdapter = new GoogleCardsNewsAdapter(getActivity(),
-                DummyNewsList());
+        mGoogleCardsnewsAdapter = new GoogleCardsNewsAdapter(getActivity(),newsdata);
 
         recyclerView.setAdapter(mGoogleCardsnewsAdapter);
         recyclerView.setLayoutManager(layoutManager);
@@ -92,29 +96,29 @@ public class homeFragment extends Fragment {
         return view;
     }
 
-    public static ArrayList<testimonies> DummyModelList() {
-        ArrayList<testimonies> list = new ArrayList<>();
-
-        list.add(new testimonies(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
-        list.add(new testimonies(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
-        list.add(new testimonies(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
-        list.add(new testimonies(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
-        list.add(new testimonies(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
-
-        return list;
-    }
-
-    public static ArrayList<news> DummyNewsList() {
-        ArrayList<news> list = new ArrayList<>();
-
-        list.add(new news(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
-        list.add(new news(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
-        list.add(new news(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
-        list.add(new news(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
-        list.add(new news(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
-
-        return list;
-    }
+//    public static ArrayList<testimonies> DummyModelList() {
+//        ArrayList<testimonies> list = new ArrayList<>();
+//
+//        list.add(new testimonies(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
+//        list.add(new testimonies(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
+//        list.add(new testimonies(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
+//        list.add(new testimonies(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
+//        list.add(new testimonies(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
+//
+//        return list;
+//    }
+//
+//    public static ArrayList<news> DummyNewsList() {
+//        ArrayList<news> list = new ArrayList<>();
+//
+//        list.add(new news(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
+//        list.add(new news(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
+//        list.add(new news(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
+//        list.add(new news(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
+//        list.add(new news(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
+//
+//        return list;
+//    }
 
 
 }

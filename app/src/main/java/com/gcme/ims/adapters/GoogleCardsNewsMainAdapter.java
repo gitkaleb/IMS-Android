@@ -2,6 +2,8 @@ package com.gcme.ims.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.gcme.ims.Activitys.singleDisplay;
 import com.gcme.ims.R;
 import com.gcme.ims.models.news;
 import com.gcme.ims.models.testimonies;
@@ -23,6 +26,7 @@ public class GoogleCardsNewsMainAdapter extends ArrayAdapter<news>
 
 	private LayoutInflater mInflater;
 	Context context;
+	news item;
 	public GoogleCardsNewsMainAdapter(Context context, List<news> items) {
 		super(context, 0, items);
 		this.context=context;
@@ -30,10 +34,10 @@ public class GoogleCardsNewsMainAdapter extends ArrayAdapter<news>
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
-	@Override
-	public long getItemId(int position) {
-		return getItem(position).getId();
-	}
+//	@Override
+//	public long getItemId(int position) {
+//		return getItem(position).getId();
+//	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -55,7 +59,7 @@ public class GoogleCardsNewsMainAdapter extends ArrayAdapter<news>
 			holder = (GoogleCardsNewsMainAdapter.ViewHolder) convertView.getTag();
 		}
 
-		news item = getItem(position);
+		item = getItem(position);
 
 		String url=item.getNewsimg();
 
@@ -63,20 +67,22 @@ public class GoogleCardsNewsMainAdapter extends ArrayAdapter<news>
 		Glide.with(context)
 				.load(url)
 				.asBitmap()
-				.placeholder(R.mipmap.ic_launcher )
+				.placeholder(R.drawable.logo )
 				.into(holder.image);
-		holder. image .setOnClickListener(new OnClickListener() {
+		holder.image.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-//
-//                Intent i=new Intent(activity_gener.getActivity(),GenerList.class);
-//                Bundle args = new Bundle();
-//                args.putString("genere",feeds.getVideogenere());
-//                i.putExtras(args);
-//                activity_gener.getActivity().startActivity(i);
-
-
+				String img = item.getNewsimg();
+				String title = item.getNewstitle();
+				String description = item.getNewsdetail();
+				Intent i = new Intent(context, singleDisplay.class);
+				Bundle args = new Bundle();
+				args.putString("imgurl", img);
+				args.putString("detailtitle", title);
+				args.putString("detaildescription", description);
+				i.putExtras(args);
+				context.startActivity(i);
 
 
 			}
@@ -85,6 +91,7 @@ public class GoogleCardsNewsMainAdapter extends ArrayAdapter<news>
 
 
 		holder.title.setText(item.getNewstitle());
+		holder.text.setText(item.getNewsdetail());
 
 		return convertView;
 	}

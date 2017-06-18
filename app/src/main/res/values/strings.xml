@@ -15,8 +15,55 @@
     <string name="lorem_ipsum_short">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 
 
-
     <string name="fontello_heart_empty">&#xe80b;</string>
+
+
+    <!-- Error messages -->
+    <string name="no_result">No video result.</string>
+    <string name="no_internet_connection">Check your connection and try again.</string>
+    <string name="response_error">Connection Time Out or Server Under Maintenance</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+
+    <!-- Button text -->
+    <string name="retry">Retry</string>
+    <string name="youtube_apikey">AIzaSyBZ8ngpu774rmY42SUTOUwoD4V42SBSnMk</string>
+
+
+    <!-- Date Util -->
+    <string name="date_util_term_less">less than</string>
+    <string name="date_util_term_a">a</string>
+    <string name="date_util_term_an">an</string>
+
+    <string name="date_util_unit_second">second</string>
+    <string name="date_util_unit_seconds">seconds</string>
+    <string name="date_util_unit_minute">minute</string>
+    <string name="date_util_unit_minutes">minutes</string>
+    <string name="date_util_unit_hour">hour</string>
+    <string name="date_util_unit_hours">hours</string>
+    <string name="date_util_unit_day">day</string>
+    <string name="date_util_unit_days">days</string>
+    <string name="date_util_unit_month">month</string>
+    <string name="date_util_unit_months">months</string>
+    <string name="date_util_unit_year">year</string>
+    <string name="date_util_unit_years">years</string>
+
+    <string name="date_util_prefix_lt">less than a</string>
+    <string name="date_util_prefix_about">about</string>
+    <string name="date_util_prefix_over">over</string>
+    <string name="date_util_prefix_almost">almost</string>
+
+    <string name="date_util_suffix">ago</string>
+
+    <string name="About">Adama City Guide offers the fastest maps for the city of Adama.
+        Travel with full confidence: Adama City Guide helps to locate yourself on the map,
+        find the nearest restaurant, hotel, bank, gas station etc. </string>
+    <string name="About2">We are always working on the new features and
+    would love to hear from you on how you think we can improve ACG. If you have
+    any problems with the app, give us feedback at www.kartauniverse.com. we respond to
+    every request!</string>
+    <string name="About3">Thank you for using Adama City Guide. we appreciate your support
+    very much. </string>
+    <string name="AboutVersion">V 1.0</string>
 
 
 </resources>

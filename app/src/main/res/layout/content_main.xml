@@ -24,12 +24,17 @@
 
 
     </android.support.design.widget.AppBarLayout>
-
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/toolbarlayout"
+        />
 <FrameLayout
     android:id="@+id/contentframe"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_below="@id/toolbarlayout">
+    android:layout_below="@id/slider">
 
 </FrameLayout>
 </RelativeLayout>

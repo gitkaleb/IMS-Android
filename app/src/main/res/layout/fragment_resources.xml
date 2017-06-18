@@ -1,13 +1,33 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gcme.ims.fragments.resourcesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.gcme.ims.fragments.homeContainerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/resourcetabappbar"
+        app:layout_scrollFlags="scroll|enterAlways">
 
-</FrameLayout>
+        <com.gcme.ims.tab.SlidingTabLayout
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/resourcetab"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/resourceviewpager"
+        android:layout_below="@+id/resourcetabappbar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
+</RelativeLayout>

@@ -11,11 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.gcme.ims.R;
+import com.gcme.ims.Services.SyncService;
 import com.gcme.ims.adapters.GoogleCardsNewsMainAdapter;
 import com.gcme.ims.adapters.GoogleCardsTestimoniesAdapter;
 import com.gcme.ims.models.news;
+import com.gcme.ims.models.testimonies;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 public class newsFragment extends Fragment {
 
     private GoogleCardsNewsMainAdapter mGoogleCardstesNewsAdapter;
+    private List<news> newsdata ;
     public newsFragment() {
         // Required empty public constructor
     }
@@ -35,9 +39,9 @@ public class newsFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_news, container, false);
         ListView listViewNews = (ListView) view.findViewById(R.id.news_list_view);
 
-
+        newsdata= SyncService.getNews();
         mGoogleCardstesNewsAdapter = new GoogleCardsNewsMainAdapter(getActivity(),
-                DummyNewsList());
+                newsdata);
 
 
         listViewNews.setClipToPadding(false);
@@ -60,16 +64,16 @@ public class newsFragment extends Fragment {
         return view;
     }
 
-    public static ArrayList<news> DummyNewsList() {
-        ArrayList<news> list = new ArrayList<>();
-
-        list.add(new news(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
-        list.add(new news(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
-        list.add(new news(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
-        list.add(new news(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
-        list.add(new news(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
-
-        return list;
-    }
+//    public static ArrayList<news> DummyNewsList() {
+//        ArrayList<news> list = new ArrayList<>();
+//
+//        list.add(new news(0, "http://pengaja.com/uiapptemplate/newphotos/profileimages/0.jpg", "Isaac Reid", "this is dummy text"));
+//        list.add(new news(1, "http://pengaja.com/uiapptemplate/newphotos/profileimages/1.jpg", "Jason Graham","this is dummy text"));
+//        list.add(new news(2, "http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg", "Abigail Ross", "this is dummy text"));
+//        list.add(new news(3, "http://pengaja.com/uiapptemplate/newphotos/profileimages/3.jpg", "Justin Rutherford","this is dummy text"));
+//        list.add(new news(4, "http://pengaja.com/uiapptemplate/newphotos/profileimages/4.jpg", "Nicholas Henderson", "this is dummy text"));
+//
+//        return list;
+//    }
 
 }

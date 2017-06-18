@@ -10,6 +10,9 @@ public class news {
     String newsdetail;
     String newsimg;
 
+    public news() {
+    }
+
     public news(int id, String newsimg, String newstitle, String newsdetail) {
         this.id = id;
         this.newstitle = newstitle;

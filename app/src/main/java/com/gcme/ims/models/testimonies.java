@@ -10,6 +10,9 @@ public class testimonies {
     String testimonytitle;
     String testimonydetail;
 
+    public testimonies() {
+    }
+
     public testimonies(int id, String testimonyimg, String testimonytitle, String testimonydetail) {
         this.id = id;
         this.testimonyimg = testimonyimg;

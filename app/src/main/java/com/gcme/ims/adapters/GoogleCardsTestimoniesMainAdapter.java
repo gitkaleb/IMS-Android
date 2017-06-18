@@ -2,6 +2,8 @@ package com.gcme.ims.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.gcme.ims.Activitys.singleDisplay;
 import com.gcme.ims.R;
 import com.gcme.ims.models.testimonies;
 
@@ -21,7 +24,7 @@ public class GoogleCardsTestimoniesMainAdapter  extends ArrayAdapter<testimonies
 		implements OnClickListener {
 Context context;
 	private LayoutInflater mInflater;
-
+	testimonies item;
 	public GoogleCardsTestimoniesMainAdapter(Context context, List<testimonies> items) {
 		super(context, 0, items);
 		this.context=context;
@@ -37,7 +40,7 @@ Context context;
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final ViewHolder holder;
-		testimonies item = getItem(position);
+		item = getItem(position);
 		if (convertView == null) {
 			convertView = mInflater.inflate(
 					R.layout.list_item_google_cards_travel_main, parent, false);
@@ -60,22 +63,24 @@ Context context;
 		Glide.with(context)
 				.load(url)
 				.asBitmap()
-				.placeholder(R.mipmap.ic_launcher )
+				.placeholder(R.drawable.logo )
 				.into(holder.image);
 
 		holder. image .setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-//
-//                Intent i=new Intent(activity_gener.getActivity(),GenerList.class);
-//                Bundle args = new Bundle();
-//                args.putString("genere",feeds.getVideogenere());
-//                i.putExtras(args);
-//                activity_gener.getActivity().startActivity(i);
+				String img=item.getTestimonyimg();
+				String title=item.getTestimonytitle();
+				String description=item.getTestimonydetail();
 
-
-
+				Intent i=new Intent(context,singleDisplay.class);
+				Bundle args = new Bundle();
+				args.putString("imgurl",img);
+				args.putString("detailtitle",title);
+				args.putString("detaildescription",description);
+				i.putExtras(args);
+				context.startActivity(i);
 
 			}
 		});
@@ -83,6 +88,7 @@ Context context;
 
 
 		holder.title.setText(item.getTestimonytitle());
+		holder.text.setText(item.getTestimonydetail());
 
 		return convertView;
 	}
